@@ -1,18 +1,32 @@
-import {defineConfig} from 'sanity'
-import {deskTool} from 'sanity/desk'
-import {visionTool} from '@sanity/vision'
-import {schemaTypes} from './schemas'
+import { defineConfig } from 'sanity'
+import { deskTool } from 'sanity/desk'
+import { visionTool } from '@sanity/vision'
+import { schemaTypes } from './schemas'
+import { media, mediaAssetSource } from 'sanity-plugin-media'
+import { structure } from './deskStructure'
 
 export default defineConfig({
-  name: 'default',
-  title: 'FireON',
+	name: 'default',
+	title: 'FireON',
 
-  projectId: 'okruw9dl',
-  dataset: 'production',
+	projectId: import.meta.env.SANITY_STUDIO_PROJECT_ID,
+	dataset: import.meta.env.SANITY_STUDIO_DATASET,
 
-  plugins: [deskTool(), visionTool()],
+	plugins: [
+		deskTool({ structure: structure }),
+		media(),
+		visionTool(),
+	],
 
-  schema: {
-    types: schemaTypes,
-  },
+	form: {
+		image: {
+			assetSources: () => [mediaAssetSource],
+			directUploads: true,
+		}
+	},
+
+	schema: {
+		types: schemaTypes
+	},
+
 })
