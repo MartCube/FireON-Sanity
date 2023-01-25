@@ -1,4 +1,4 @@
-import { defineField, defineType } from 'sanity'
+import { defineField, defineType, defineArrayMember } from 'sanity'
 
 export default defineType({
 	name: 'magazines',
@@ -9,6 +9,24 @@ export default defineType({
 			name: 'title',
 			title: 'Title',
 			type: 'string',
+		}),
+		defineField({
+			name: 'list',
+			title: 'Magazine List',
+			type: 'array',
+			of: [
+				defineArrayMember({
+					name: 'magazine',
+					title: 'Magazine',
+					type: 'reference',
+					weak: true,
+					to: [{ type: 'magazine' }],
+					options: {
+						disableNew: true,
+					},
+				})
+			],
+			validation: Rule => Rule.unique(),
 		}),
 	],
 	preview: {

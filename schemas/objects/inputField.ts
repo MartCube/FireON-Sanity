@@ -6,18 +6,23 @@ export default defineType({
 	type: 'object',
 	fields: [
 		defineField({
+			name: 'name',
+			title: 'Name',
+			type: 'string',
+			validation: Rule => Rule.required(),
+			description: 'ID Field',
+		}),
+		defineField({
 			name: 'label',
 			title: 'Label',
 			type: 'string',
 			validation: Rule => Rule.required(),
-			initialValue: 'label',
 		}),
 		defineField({
 			name: 'placeholder',
 			title: 'Placeholder',
 			type: 'string',
 			validation: Rule => Rule.required(),
-			initialValue: 'Placeholder',
 		}),
 	],
 	options: {

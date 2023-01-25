@@ -10,6 +10,18 @@ export default defineType({
 			type: 'intro',
 		}),
 		defineArrayMember({
+			type: 'features',
+		}),
+		defineArrayMember({
+			type: 'magazines',
+		}),
+		defineArrayMember({
+			type: 'cta',
+		}),
+		defineArrayMember({
+			type: 'techSpecs',
+		}),
+		defineArrayMember({
 			type: 'about',
 		}),
 		defineArrayMember({
@@ -20,19 +32,6 @@ export default defineType({
 		}),
 		defineArrayMember({
 			type: 'contact',
-		}),
-		defineArrayMember({
-			type: 'techSpecs',
-		}),
-
-		defineArrayMember({
-			type: 'magazines',
-		}),
-		defineArrayMember({
-			type: 'features',
-		}),
-		defineArrayMember({
-			type: 'cta',
 		}),
 	],
 })

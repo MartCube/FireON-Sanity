@@ -6,8 +6,8 @@ export default defineType({
 	type: 'object',
 	fields: [
 		defineField({
-			name: 'magazine',
-			title: 'Magazine Image',
+			name: 'image',
+			title: 'Image',
 			type: 'image',
 			options: { hotspot: true, },
 		}),

@@ -23,6 +23,11 @@ export default defineType({
 				})
 			]
 		}),
+		defineField({
+			name: 'button',
+			title: 'Button',
+			type: 'string',
+		}),
 	],
 	preview: {
 		prepare() {

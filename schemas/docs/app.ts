@@ -2,7 +2,7 @@ import { defineArrayMember, defineField, defineType } from 'sanity'
 
 export default defineType({
 	name: 'app',
-	title: 'App FireON',
+	title: 'App',
 	type: 'document',
 	fields: [
 		defineField({
@@ -14,7 +14,12 @@ export default defineType({
 			name: 'links',
 			title: 'Links',
 			type: 'array',
-			of: [],
+			of: [
+				defineArrayMember({
+					type: 'link',
+				})
+			],
+			validation: Rule => Rule.unique(),
 		}),
 		defineField({
 			name: 'smedias',
@@ -35,7 +40,6 @@ export default defineType({
 							name: 'icon',
 							title: 'Icon',
 							type: 'string',
-							description: 'link to icon base',
 						}),
 						defineField({
 							name: 'link',
@@ -45,6 +49,16 @@ export default defineType({
 					]
 				})
 			],
+			validation: Rule => Rule.unique(),
+		}),
+		defineField({
+			name: 'content',
+			title: 'Content',
+			type: 'content',
+		}),
+		defineField({
+			name: 'metaTags',
+			type: 'metaTags',
 		}),
 	],
 	preview: {

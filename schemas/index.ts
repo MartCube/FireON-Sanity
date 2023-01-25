@@ -4,6 +4,7 @@ import inputField from './objects/inputField'
 import partner from './objects/partner'
 import feature from './objects/feature'
 import techSpec from './objects/techSpec'
+import link from './objects/link'
 // content blocks
 import intro from './blocks/intro'
 import contact from './blocks/contact'
@@ -19,7 +20,8 @@ import features from './blocks/features'
 import content from './content'
 // docs
 import app from './docs/app'
-import landingPage from './docs/landingPage'
+import magazine from './docs/magazine'
+import color from './docs/color'
 
 export const schemaTypes = [
 	metaTags,
@@ -27,6 +29,7 @@ export const schemaTypes = [
 	partner,
 	feature,
 	techSpec,
+	link,
 
 	features,
 	techSpecs,
@@ -40,5 +43,6 @@ export const schemaTypes = [
 
 	content,
 	app,
-	landingPage,
+	magazine,
+	color,
 ]
