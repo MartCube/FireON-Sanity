@@ -11,6 +11,15 @@ export default defineType({
 			type: 'string',
 		}),
 		defineField({
+			name: 'uid',
+			title: 'UID',
+			type: 'slug',
+			options: {
+				source: 'name',
+				maxLength: 96,
+			},
+		}),
+		defineField({
 			name: 'info',
 			title: 'Info',
 			type: 'object',
@@ -53,14 +62,18 @@ export default defineType({
 					type: 'block',
 					styles: [
 						{ title: 'Normal', value: 'normal' },
-						{ title: 'H1', value: 'h1' },
-						{ title: 'H2', value: 'h2' },
 					],
 					lists: [{ title: 'Bullet', value: 'bullet' }],
 				}),
 			],
 		}),
 		defineField({
+			name: 'svg',
+			title: 'Name as SVG',
+			type: 'image',
+			options: { hotspot: true, },
+		}),
+		defineField({//	gallery
 			name: 'gallery',
 			title: 'Gallery',
 			type: 'array',
@@ -75,7 +88,7 @@ export default defineType({
 			validation: Rule => Rule.unique(),
 			description: 'first image is the main'
 		}),
-		defineField({
+		defineField({//	colors
 			name: 'colors',
 			title: 'Colors',
 			type: 'array',
@@ -92,6 +105,10 @@ export default defineType({
 				})
 			],
 			validation: Rule => Rule.unique(),
+		}),
+		defineField({//	metaTags
+			name: 'metaTags',
+			type: 'metaTags',
 		}),
 	],
 	preview: {

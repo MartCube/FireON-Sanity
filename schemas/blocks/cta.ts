@@ -11,15 +11,27 @@ export default defineType({
 			type: 'string',
 		}),
 		defineField({
+			name: 'button',
+			title: 'Button',
+			type: 'string',
+		}),
+		defineField({
 			name: 'image',
 			title: 'Image',
 			type: "image",
 			options: { hotspot: true, },
 		}),
 		defineField({
-			name: 'button',
-			title: 'Button',
-			type: 'string',
+			name: 'bg',
+			title: 'Background Image',
+			type: 'image',
+			options: { hotspot: true, },
+		}),
+		defineField({
+			name: 'bgMobile',
+			title: 'Background Image Mobile',
+			type: 'image',
+			options: { hotspot: true, },
 		}),
 	],
 	preview: {

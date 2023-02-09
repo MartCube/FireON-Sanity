@@ -4,6 +4,7 @@ export default defineType({
 	name: 'app',
 	title: 'App',
 	type: 'document',
+	i18n: true,
 	fields: [
 		defineField({
 			name: 'logo',
@@ -22,6 +23,11 @@ export default defineType({
 			validation: Rule => Rule.unique(),
 		}),
 		defineField({
+			name: 'content',
+			title: 'Content',
+			type: 'content',
+		}),
+		defineField({// smedias
 			name: 'smedias',
 			title: 'Social Medias',
 			type: 'array',
@@ -51,20 +57,20 @@ export default defineType({
 			],
 			validation: Rule => Rule.unique(),
 		}),
-		defineField({
-			name: 'content',
-			title: 'Content',
-			type: 'content',
-		}),
-		defineField({
+		defineField({// metaTags
 			name: 'metaTags',
 			type: 'metaTags',
 		}),
 	],
 	preview: {
-		prepare() {
+		select: {
+			lang: '__i18n_lang'
+		},
+		prepare(selection) {
+			const { lang } = selection
 			return {
-				title: 'App FireON'
+				title: "FireOn",
+				subtitle: `${lang}`
 			}
 		},
 	}

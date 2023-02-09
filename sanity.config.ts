@@ -4,7 +4,7 @@ import { visionTool } from '@sanity/vision'
 import { schemaTypes } from './schemas'
 import { media, mediaAssetSource } from 'sanity-plugin-media'
 import { structure } from './deskStructure'
-
+import { ReferenceBehavior, withDocumentI18nPlugin } from '@sanity/document-internationalization'
 export default defineConfig({
 	name: 'default',
 	title: 'FireON',
@@ -12,11 +12,19 @@ export default defineConfig({
 	projectId: import.meta.env.SANITY_STUDIO_PROJECT_ID,
 	dataset: import.meta.env.SANITY_STUDIO_DATASET,
 
-	plugins: [
+	plugins: withDocumentI18nPlugin(() => ([
 		deskTool({ structure: structure }),
 		media(),
 		visionTool(),
-	],
+	]), {
+		includeDeskTool: false,
+		languages: [
+			{ "id": "ua", "title": "Ukrainian" },
+			{ "id": "en", "title": "English" },
+		],
+		referenceBehavior: ReferenceBehavior.WEAK
+	}),
+
 
 	form: {
 		image: {

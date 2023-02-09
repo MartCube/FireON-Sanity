@@ -21,12 +21,18 @@ export default defineType({
 			type: 'image',
 			options: { hotspot: true, },
 		}),
-		// defineField({
-		// 	name: 'bg',
-		// 	title: 'Background Image',
-		// 	type: 'image',
-		// 	options: { hotspot: true, },
-		// }),
+		defineField({
+			name: 'bg',
+			title: 'Background Image',
+			type: 'image',
+			options: { hotspot: true, },
+		}),
+		defineField({
+			name: 'bgMobile',
+			title: 'Background Image Mobile',
+			type: 'image',
+			options: { hotspot: true, },
+		}),
 	],
 	preview: {
 		prepare() {
