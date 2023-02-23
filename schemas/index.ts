@@ -22,6 +22,7 @@ import content from './content'
 import app from './docs/app'
 import magazine from './docs/magazine'
 import color from './docs/color'
+import basket from './docs/basket'
 
 export const schemaTypes = [
 	metaTags,
@@ -45,4 +46,5 @@ export const schemaTypes = [
 	app,
 	magazine,
 	color,
+	basket,
 ]

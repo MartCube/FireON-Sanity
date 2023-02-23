@@ -11,6 +11,11 @@ export default defineType({
 			type: 'string',
 		}),
 		defineField({
+			name: 'button',
+			title: 'Magazine Card Button',
+			type: 'string',
+		}),
+		defineField({
 			name: 'list',
 			title: 'Magazine List',
 			type: 'array',

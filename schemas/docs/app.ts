@@ -6,12 +6,17 @@ export default defineType({
 	type: 'document',
 	i18n: true,
 	fields: [
-		defineField({
+		defineField({// logo
 			name: 'logo',
 			title: 'Logo',
 			type: 'image',
 		}),
-		defineField({
+		defineField({// content
+			name: 'content',
+			title: 'Content',
+			type: 'content',
+		}),
+		defineField({// links
 			name: 'links',
 			title: 'Links',
 			type: 'array',
@@ -21,11 +26,6 @@ export default defineType({
 				})
 			],
 			validation: Rule => Rule.unique(),
-		}),
-		defineField({
-			name: 'content',
-			title: 'Content',
-			type: 'content',
 		}),
 		defineField({// smedias
 			name: 'smedias',
