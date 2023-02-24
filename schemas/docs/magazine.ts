@@ -25,14 +25,47 @@ export default defineType({
 			type: 'array',
 			of: [
 				defineArrayMember({
-					name: 'image',
-					title: 'Image',
-					type: 'image',
-					options: { hotspot: true, },
+					name: 'list',
+					title: 'List',
+					type: 'object',
+					fields: [
+						defineField({
+							name: 'color',
+							title: 'Color',
+							type: 'reference',
+							weak: true,
+							to: [{ type: 'color' }],
+							options: {
+								disableNew: true,
+							},
+						}),
+						defineField({
+							name: 'images',
+							title: 'Images',
+							type: 'array',
+							of: [
+								defineArrayMember({
+									name: 'image',
+									title: 'Image',
+									type: 'image',
+									options: { hotspot: true, },
+								})
+							]
+						})
+					],
+					preview: {
+						select: {
+							color: 'color.name',
+						},
+						prepare(selection) {
+							const { color } = selection
+							return {
+								title: `${color} Color - Gallery`,
+							}
+						},
+					}
 				})
 			],
-			validation: Rule => Rule.unique(),
-			description: 'first image is the main',
 		}),
 		defineField({// info
 			name: 'info',
