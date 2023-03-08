@@ -21,7 +21,6 @@ import content from './content'
 // docs
 import app from './docs/app'
 import magazine from './docs/magazine'
-import color from './docs/color'
 import basket from './docs/basket'
 
 export const schemaTypes = [
@@ -45,6 +44,5 @@ export const schemaTypes = [
 	content,
 	app,
 	magazine,
-	color,
 	basket,
 ]

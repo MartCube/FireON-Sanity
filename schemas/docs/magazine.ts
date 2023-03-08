@@ -12,60 +12,12 @@ export default defineType({
 			type: 'image',
 			options: { hotspot: true, },
 		}),
-		defineField({// name UID
+		defineField({// name
 			name: 'name',
 			title: 'Name',
 			type: 'string',
 			validation: Rule => Rule.required().lowercase(),
 			description: 'UID'
-		}),
-		defineField({//	gallery
-			name: 'gallery',
-			title: 'Gallery',
-			type: 'array',
-			of: [
-				defineArrayMember({
-					name: 'list',
-					title: 'List',
-					type: 'object',
-					fields: [
-						defineField({
-							name: 'color',
-							title: 'Color',
-							type: 'reference',
-							weak: true,
-							to: [{ type: 'color' }],
-							options: {
-								disableNew: true,
-							},
-						}),
-						defineField({
-							name: 'images',
-							title: 'Images',
-							type: 'array',
-							of: [
-								defineArrayMember({
-									name: 'image',
-									title: 'Image',
-									type: 'image',
-									options: { hotspot: true, },
-								})
-							]
-						})
-					],
-					preview: {
-						select: {
-							color: 'color.name',
-						},
-						prepare(selection) {
-							const { color } = selection
-							return {
-								title: `${color} Color - Gallery`,
-							}
-						},
-					}
-				})
-			],
 		}),
 		defineField({// info
 			name: 'info',
@@ -93,12 +45,6 @@ export default defineType({
 				collapsed: true,
 			},
 		}),
-		defineField({// price
-			name: 'price',
-			title: 'Price',
-			type: 'number',
-			description: 'Ukrainian hryvnia'
-		}),
 		defineField({//description
 			name: 'description',
 			title: 'Description',
@@ -116,43 +62,64 @@ export default defineType({
 				}),
 			],
 		}),
-		defineField({//	colors
-			name: 'colors',
-			title: 'Colors',
-			type: 'object',
-			fields: [
-				defineField({
-					name: 'title',
-					title: 'Title',
-					type: 'string',
-				}),
-				defineField({
-					name: 'list',
-					title: 'List',
-					type: 'array',
-					of: [
-						defineArrayMember({
+		defineField({//colorMagazines
+			name: 'colorMagazines',
+			title: 'Color Magazines',
+			type: 'array',
+			of: [
+				defineArrayMember({
+					name: 'colorMagazine',
+					title: 'Color Magazine',
+					type: 'object',
+					fields: [
+						defineField({// color
 							name: 'color',
 							title: 'Color',
-							type: 'reference',
-							weak: true,
-							to: [{ type: 'color' }],
-							options: {
-								disableNew: true,
-							},
-						})
+							type: 'string',
+						}),
+						defineField({// gallery
+							name: 'gallery',
+							title: 'Gallery',
+							type: 'array',
+							of: [
+								defineArrayMember({
+									name: 'image',
+									title: 'Image',
+									type: 'image',
+									options: { hotspot: true, },
+								})
+							]
+						}),
+						defineField({// price
+							name: 'price',
+							title: 'Price',
+							type: 'number',
+							description: 'Ukrainian hryvnia'
+						}),
 					],
-					validation: Rule => Rule.unique(),
-				}),
+					preview: {
+						select: {
+							color: 'color',
+						},
+						prepare(selection) {
+							const { color } = selection
+							return {
+								title: `${color}`,
+							}
+						},
+					}
+				})
 			],
-			options: {
-				collapsible: true,
-				collapsed: true,
-			},
 		}),
 		defineField({//	metaTags
 			name: 'metaTags',
 			type: 'metaTags',
+		}),
+		defineField({//	colorTitle
+			name: 'colorTitle',
+			title: 'Color Title',
+			type: 'string',
+			description: 'Pick your color'
 		}),
 		defineField({//	button
 			name: 'button',
