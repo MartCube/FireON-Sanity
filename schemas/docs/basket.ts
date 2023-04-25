@@ -37,8 +37,28 @@ export default defineType({
 					type: 'inputField',
 				}),
 				defineField({
-					name: 'name',
-					title: 'Name',
+					name: 'warehouse',
+					title: 'Warehouse',
+					type: 'inputField',
+				}),
+				defineField({
+					name: 'firstname',
+					title: 'First Name',
+					type: 'inputField',
+				}),
+				defineField({
+					name: 'lastname',
+					title: 'Last Name',
+					type: 'inputField',
+				}),
+				defineField({
+					name: 'middlename',
+					title: 'Middle Name',
+					type: 'inputField',
+				}),
+				defineField({
+					name: 'email',
+					title: 'Email',
 					type: 'inputField',
 				}),
 				defineField({

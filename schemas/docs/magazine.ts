@@ -96,6 +96,13 @@ export default defineType({
 							type: 'number',
 							description: 'Ukrainian hryvnia'
 						}),
+						defineField({// price
+							name: 'isProductActive',
+							title: 'Is product available',
+							type: 'boolean',
+							initialValue: false,
+							description: 'Is product available'
+						}),
 					],
 					preview: {
 						select: {
