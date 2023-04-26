@@ -72,11 +72,15 @@ export default defineType({
 					type: 'inputField',
 				}),
 				defineField({
+					name: 'promoCode',
+					title: 'Promotion Code',
+					type: 'inputField',
+				}),
+				defineField({
 					name: 'button',
 					title: 'Button',
 					type: 'string',
 				}),
-
 			],
 			options: {
 				collapsible: true,
@@ -84,20 +88,45 @@ export default defineType({
 			},
 		}),
 		defineField({// success
-			name: 'success',
-			title: 'Success Response',
+			name: 'response',
+			title: 'Response',
 			type: 'object',
 			fields: [
 				defineField({
-					name: 'title',
-					title: 'Title',
-					type: 'string',
+					name: 'success',
+					title: 'Success',
+					type: 'object',
+					fields: [
+						defineField({
+							name: 'title',
+							title: 'Title',
+							type: 'string',
+						}),
+						defineField({
+							name: 'button',
+							title: 'Button',
+							type: 'string',
+						})
+					]
 				}),
 				defineField({
-					name: 'button',
-					title: 'Button',
-					type: 'string',
+					name: 'error',
+					title: 'Error',
+					type: 'object',
+					fields: [
+						defineField({
+							name: 'title',
+							title: 'Title',
+							type: 'string',
+						}),
+						defineField({
+							name: 'button',
+							title: 'Button',
+							type: 'string',
+						})
+					]
 				}),
+
 			],
 			options: {
 				collapsible: true,
