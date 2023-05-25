@@ -96,6 +96,12 @@ export default defineType({
 							type: 'number',
 							description: 'Ukrainian hryvnia'
 						}),
+						defineField({// sku number
+							name: 'sku',
+							title: 'sku number',
+							type: 'number',
+							description: 'sku number'
+						}),
 						defineField({// price
 							name: 'isProductActive',
 							title: 'Is product available',
