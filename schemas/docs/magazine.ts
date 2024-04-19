@@ -60,6 +60,26 @@ export default defineType({
 					],
 					lists: [{ title: 'Bullet', value: 'bullet' }],
 				}),
+				defineArrayMember({
+					name: 'youtube',
+					title: 'Youtube',
+					type: 'object',
+					fields: [
+						defineField({
+							name: 'id',
+							title: 'Video ID',
+							type: 'string',
+							validation: Rule => Rule.required()
+						})
+					],
+					preview: {
+						prepare() {
+							return {
+								title: 'Youtube Video'
+							}
+						},
+					}
+				}),
 			],
 		}),
 		defineField({//colorMagazines

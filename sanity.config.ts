@@ -21,6 +21,8 @@ export default defineConfig({
 		languages: [
 			{ "id": "ua", "title": "Ukrainian" },
 			{ "id": "en", "title": "English" },
+			{ "id": "ro", "title": "Romanian" },
+			{ "id": "pl", "title": "Polish" },
 		],
 		referenceBehavior: ReferenceBehavior.WEAK
 	}),
