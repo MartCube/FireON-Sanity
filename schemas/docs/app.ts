@@ -11,6 +11,11 @@ export default defineType({
 			title: 'Logo',
 			type: 'image',
 		}),
+		defineField({// product gallery bg
+			name: 'productGalleryBg',
+			title: 'Product Gallery Background',
+			type: 'image',
+		}),
 		defineField({// content
 			name: 'content',
 			title: 'Content',
