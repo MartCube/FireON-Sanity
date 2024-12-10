@@ -160,6 +160,11 @@ export default defineType({
 			type: 'string',
 			description: 'Add To Basket'
 		}),
+		defineField({// logo
+			name: 'home_image',
+			title: 'Image for the home page',
+			type: 'image',
+		}),
 	],
 	preview: {
 		select: {
