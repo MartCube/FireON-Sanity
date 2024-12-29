@@ -1,0 +1,28 @@
+name: Trigger Target Repository Workflow
+
+on:
+  push:
+    branches:
+      - main  # Adjust the branch as needed
+
+jobs:
+  trigger-target-repo:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Trigger target repository workflow
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const token = process.env.fireon_sanity;
+          const octokit = github.getOctokit(token);
+
+          await octokit.repos.createWorkflowDispatch({
+            owner: 'MartCube',
+            repo: 'FireON',
+            workflow_id: 'main.yml', # Adjust to your target workflow file
+            ref: 'main',               # Branch in the target repository
+            inputs: {}                 # Optional: Add inputs if needed
+          });
+      env:
+        GITHUB_TOKEN: ${{ secrets.FIREON_SANITY }}
