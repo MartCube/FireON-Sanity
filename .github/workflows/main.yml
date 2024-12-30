@@ -17,7 +17,7 @@ jobs:
           const token = process.env.GITHUB_TOKEN;
           const octokit = require('@actions/github').getOctokit(token);
 
-          await octokit.repos.createWorkflowDispatch({
+          await octokit.rest.actions.createWorkflowDispatch({
             owner: 'MartCube',
             repo: 'FireOn',
             workflow_id: 'main.yml', # Adjust to your target workflow file
