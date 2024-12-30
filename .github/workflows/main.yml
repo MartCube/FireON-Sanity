@@ -25,4 +25,4 @@ jobs:
             inputs: {}                 # Optional: Add inputs if needed
           });
       env:
-        FIREON_SANITY: ${{ secrets.FIREON_SANITY }}
+        GITHUB_TOKEN: ${{ secrets.FIREON_SANITY }}
