@@ -14,7 +14,7 @@ jobs:
       uses: actions/github-script@v6
       with:
         script: |
-          const token = process.env.GITHUB_TOKEN;
+          const token = process.env.FIREON_SANITY;
           const octokit = github.getOctokit(token);
 
           await octokit.repos.createWorkflowDispatch({
@@ -25,4 +25,4 @@ jobs:
             inputs: {}                 # Optional: Add inputs if needed
           });
       env:
-        GITHUB_TOKEN: ${{ secrets.FIREON_SANITY }}
+        FIREON_SANITY: ${{ secrets.FIREON_SANITY }}
