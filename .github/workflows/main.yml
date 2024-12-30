@@ -1,33 +1,28 @@
-name: Sanity Deploy
+name: Trigger Target Repository Workflow
+
 on:
   push:
-  workflow_dispatch:
-     inputs:
-      workflow_02:
-        description: 'ًWorkflow 2 which will be triggered'
-        required: true
-        default: 'main'
-
-      workflow2_github_account:
-        description: 'GitHub Account Owner'
-        required: true
-        default: 'MartCube'
-
-      workflow2_repo_github:
-        description: 'repo-name'
-        required: true
-        default: 'FireOn' 
+    branches:
+      - main  # Adjust the branch as needed
 
 jobs:
-  build:
+  trigger-target-repo:
     runs-on: ubuntu-latest
 
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Test
-        run: |
-          curl -X POST https://api.github.com/repos/MartCube/FireOn/dispatches \
-          -H 'Accept: application/vnd.github.everest-preview+json' \
-          -u ${{ secrets.FIREON_SANITY }} \
-          --data '{"event_type": "Trigger Workflow", "client_payload": { "repository": "'"$GITHUB_REPOSITORY"'" }}'
-      - uses: actions/checkout@v3
+    - name: Trigger target repository workflow
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const token = process.env.GITHUB_TOKEN;
+          const octokit = github.getOctokit(token);
+
+          await octokit.repos.createWorkflowDispatch({
+            owner: 'MartCube',
+            repo: 'FireOn',
+            workflow_id: 'main.yml', # Adjust to your target workflow file
+            ref: 'main',               # Branch in the target repository
+            inputs: {}                 # Optional: Add inputs if needed
+          });
+      env:
+        GITHUB_TOKEN: ${{ secrets.FIREON_SANITY }}
