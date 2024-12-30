@@ -14,7 +14,7 @@ jobs:
       uses: actions/github-script@v6
       with:
         script: |
-          const token = process.env.FIREON_SANITY;
+          const token = process.env.GITHUB_TOKEN;
           const octokit = require('@actions/github').getOctokit(token);
 
           await octokit.repos.createWorkflowDispatch({
