@@ -15,7 +15,7 @@ jobs:
           # Set the required variables
           repo_owner="MartCube" 
           repo_name="FireOn"  
-          event_type="trigger-workflow" 
+          event_type="main" 
   
           curl -L \
             -X POST \
