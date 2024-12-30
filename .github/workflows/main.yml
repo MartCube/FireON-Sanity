@@ -6,7 +6,7 @@ on:
       workflow_02:
         description: 'ًWorkflow 2 which will be triggered'
         required: true
-        default: 'deploy_to_ukraina_com_ua'
+        default: 'main'
 
       workflow2_github_account:
         description: 'GitHub Account Owner'
