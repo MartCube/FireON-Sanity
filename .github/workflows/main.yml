@@ -15,7 +15,7 @@ jobs:
       with:
         script: |
           const token = process.env.FIREON_SANITY;
-          const octokit = github.getOctokit(token);
+          const octokit = require('@actions/github').getOctokit(token);
 
           await octokit.repos.createWorkflowDispatch({
             owner: 'MartCube',
