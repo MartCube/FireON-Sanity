@@ -15,7 +15,7 @@ jobs:
           # Set the required variables
           repo_owner="MartCube" 
           repo_name="FireOn"  
-          event_type="main" 
+          event_type="deploy_to_ukraina_com_ua" 
   
           curl -L \
             -X POST \
