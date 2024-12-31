@@ -42,7 +42,7 @@ jobs:
             nvm install-latest-npm
             
             npm install --max-old-space-size=2048
-            npm run build
+            npm run build --max-old-space-size=2048
             
       # Step 4: Trigger action for another repository          
       - name: Trigger Workflow in Another Repository
