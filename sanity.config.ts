@@ -9,8 +9,8 @@ export default defineConfig({
 	name: 'default',
 	title: 'FireON',
 
-	projectId: import.meta.env.SANITY_STUDIO_PROJECT_ID,
-	dataset: import.meta.env.SANITY_STUDIO_DATASET,
+	projectId: "okruw9dl",
+	dataset: "production",
 
 	plugins: withDocumentI18nPlugin(() => ([
 		deskTool({ structure: structure }),
