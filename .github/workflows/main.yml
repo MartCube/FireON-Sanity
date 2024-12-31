@@ -39,8 +39,8 @@ jobs:
             ls
             npm cache clean --force
             nvm use 20
-            npm install --max-old-space-size=2048
-            npm run build --max-old-space-size=2048
+            npm install --max-old-space-size=4096
+            npm run build --max-old-space-size=4096
             dmesg | grep -i "killed"
             
       # Step 4: Trigger action for another repository          
