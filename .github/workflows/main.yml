@@ -10,6 +10,35 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+     # Step 1: Checkout the repository
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # Step 2: Deploy files with rsync
+      - name: Deploy with Rsync
+        uses: burnett01/rsync-deployments@7.0.1
+        with:
+          switches: -avzr --delete
+          path: .
+          remote_host: ${{ secrets.REMOTE_HOST }}
+          remote_user: ${{ secrets.REMOTE_USER }}
+          remote_key: ${{ secrets.REMOTE_KEY }}
+          remote_path: ${{ secrets.REMOTE_PATH }}  
+
+      # Step 3: Execute remote commands via SSH
+      - name: Deploy Application on Remote Server
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          key: ${{ secrets.REMOTE_KEY }}
+          port: ${{ secrets.PORT }}
+          script: |
+            cd /home/cyclone/fireon.com.ua/www/
+            rm -rf node_modules package-lock.json
+            ls
+            npm install
+            npm run build
       - name: Trigger Workflow in Another Repository
         run: |
           # Set the required variables
