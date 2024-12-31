@@ -38,6 +38,7 @@ jobs:
             rm -rf node_modules package-lock.json
             ls
             nvm use 20
+            nvm install-latest-npm
             npm install
             npm run build
       - name: Trigger Workflow in Another Repository
