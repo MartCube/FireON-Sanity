@@ -34,7 +34,7 @@ jobs:
           key: ${{ secrets.REMOTE_KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            cd /home/cyclone/fireon.com.ua/www/
+            cd /home/cyclone/fireon.com.ua/admin/
             rm -rf node_modules package-lock.json
             ls
             npm install
