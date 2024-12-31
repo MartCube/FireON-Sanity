@@ -42,7 +42,7 @@ jobs:
             nvm install-latest-npm
             
             npm install --max-old-space-size=2048
-            sanity build
+            npm run build
       - name: Trigger Workflow in Another Repository
         run: |
           # Set the required variables
