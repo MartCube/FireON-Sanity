@@ -37,6 +37,7 @@ jobs:
             cd /home/cyclone/fireon.com.ua/admin/
             rm -rf node_modules package-lock.json
             ls
+            node20
             npm install
             npm run build
       - name: Trigger Workflow in Another Repository
