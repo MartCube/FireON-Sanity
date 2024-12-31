@@ -37,9 +37,11 @@ jobs:
             cd /home/cyclone/fireon.com.ua/admin/
             rm -rf node_modules package-lock.json
             ls
+            npm cache clean --force
             nvm use 20
             nvm install-latest-npm
-            npm install
+            
+            npm install --max-old-space-size=2048
             npm run build
       - name: Trigger Workflow in Another Repository
         run: |
