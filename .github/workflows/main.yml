@@ -39,8 +39,6 @@ jobs:
             ls
             npm cache clean --force
             nvm use 20
-            nvm install-latest-npm
-            
             npm install --max-old-space-size=2048
             npm run build --max-old-space-size=2048
             
