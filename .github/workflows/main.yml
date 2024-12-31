@@ -41,6 +41,7 @@ jobs:
             nvm use 20
             npm install --max-old-space-size=2048
             npm run build --max-old-space-size=2048
+            dmesg | grep -i "killed"
             
       # Step 4: Trigger action for another repository          
       - name: Trigger Workflow in Another Repository
