@@ -16,6 +16,7 @@ jobs:
         with:
           node-version: 18  # Указываем версию Node.js
           cache: 'npm'      # Включаем кэширование npm-зависимостей
+          cache-dependency-path: '**/package-lock.json'
 
       # Step 2: Checkout репозитория
       - name: Checkout Repository
@@ -23,7 +24,6 @@ jobs:
 
       # Step 3: Установка зависимостей и сборка
       - name: Install Dependencies and Build
-        working-directory: ./
         run: |
           npm install
           npm run build  # Сборка проекта
