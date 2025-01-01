@@ -1,4 +1,4 @@
-name: Trigger Target Repository Workflow
+name: sanity_deploy
 
 on:
   push:
