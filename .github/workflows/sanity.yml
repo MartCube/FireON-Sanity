@@ -16,8 +16,8 @@ jobs:
         id: prevent_duplicates
         uses: actions/cache@v3
         with:
-          path: event.lock
-          key: ${{ github.event.inputs.id }}
+          path: ~/.npm
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
 
       - name: Skip If Duplicate
         if: steps.prevent_duplicates.outputs.cache-hit == 'true'
