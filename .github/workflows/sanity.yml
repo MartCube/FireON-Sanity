@@ -2,7 +2,8 @@ name: sanity_deploy
 
 on:
   workflow_dispatch:
-
+    inputs:
+      id: {}
 
 jobs:
   trigger:
@@ -10,13 +11,13 @@ jobs:
 
     steps:
       - run: |
-          echo ${{github.event}}
+          echo ${{github.event.inputs.id}}
       - name: Prevent Duplicate Runs
         id: prevent_duplicates
         uses: actions/cache@v3
         with:
           path: event.lock
-          key: ${{ github.event.id }}
+          key: ${{ github.event.inputs.id }}
 
       - name: Skip If Duplicate
         if: steps.prevent_duplicates.outputs.cache-hit == 'true'
