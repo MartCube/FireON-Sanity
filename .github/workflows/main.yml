@@ -7,7 +7,7 @@ on:
   repository_dispatch:
     types:
       - sanity_publish
-  workflow_dispatch:
+
 
 jobs:
   trigger:
