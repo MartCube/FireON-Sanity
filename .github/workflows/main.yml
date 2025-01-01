@@ -4,11 +4,14 @@ on:
   push:
     branches:
       - main  # Adjust the branch as needed
-
+  workflow_dispatch:
 
 jobs:
   trigger:
     runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}  # Unique group for each branch
+      cancel-in-progress: true  # Cancel in-progress runs of the same group
 
     steps:
      # Step 1: Установка Node.js версии 18
