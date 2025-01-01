@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: 18  # Указываем версию Node.js
           cache: 'npm'      # Включаем кэширование npm-зависимостей
-          cache-dependency-path: '**/package-lock.json'
+          cache-dependency-path: './package-lock.json'
 
       # Step 2: Checkout репозитория
       - name: Checkout Repository
