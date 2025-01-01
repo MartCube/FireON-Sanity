@@ -9,6 +9,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Prevent Duplicate Runs
+        id: prevent_duplicates
+        uses: actions/cache@v3
+        with:
+          path: event.lock
+          key: ${{ github.event.id }}
+
+      - name: Skip If Duplicate
+        if: steps.prevent_duplicates.outputs.cache-hit == 'true'
+        run: echo "Duplicate event, skipping run."
+
+      - name: Continue Workflow
+        if: steps.prevent_duplicates.outputs.cache-hit != 'true'
+        run: echo "First run, continuing workflow..."
+
      # Step 1: Установка Node.js версии 18
       - name: Set up Node.js 18
         uses: actions/setup-node@v3
