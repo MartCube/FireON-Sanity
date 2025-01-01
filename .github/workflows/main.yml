@@ -15,8 +15,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18  # Указываем версию Node.js
-          cache: 'npm'      # Включаем кэширование npm-зависимостей
-          cache-dependency-path: './package-lock.json'
+          cache: true      # Включаем кэширование npm-зависимостей
+          cache-dependency-path: '/cyclone/fireon.com.ua/admin/package-lock.json'
 
       # Step 2: Checkout репозитория
       - name: Checkout Repository
