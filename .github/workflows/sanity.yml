@@ -8,6 +8,9 @@ on:
 jobs:
   trigger:
     runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}  # Unique group for each branch
+      cancel-in-progress: true  # Cancel in-progress runs of the same group
 
     steps:
       - run: |
