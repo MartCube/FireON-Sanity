@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main  # Adjust the branch as needed
+  repository_dispatch:
+    types:
+      - sanity_publish
 
 jobs:
   trigger:
