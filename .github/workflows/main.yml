@@ -54,12 +54,29 @@ jobs:
             echo "Deployment complete!"
             
       # Step 4: Trigger action for another repository          
-      - name: Trigger Workflow in Another Repository
+      - name: Trigger Workflow in FireON Repository
         run: |
           # Set the required variables
           repo_owner="MartCube" 
           repo_name="FireON"  
-          event_type="deploy_to_ukraina_com_ua" 
+          event_type="deploy_to_ukraina_com_ua_main" 
+  
+          curl -L \
+            -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${{ secrets.FIREON_SANITY }}" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/repos/$repo_owner/$repo_name/dispatches \
+            -d "{\"event_type\": \"$event_type\", \"client_payload\": {\"service\": \"$service\", \"version\": \"$version\", \"unit\": false, \"integration\": true}}"
+
+
+       # Step 4: Trigger action for another repository          
+      - name: Trigger Workflow in FireON-Sanity Repository
+        run: |
+          # Set the required variables
+          repo_owner="MartCube" 
+          repo_name="FireON-Sanity"  
+          event_type="deploy_to_ukraina_com_ua_poland" 
   
           curl -L \
             -X POST \
