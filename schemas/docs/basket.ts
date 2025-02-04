@@ -21,6 +21,11 @@ export default defineType({
 			title: 'Empty Basket message',
 			type: 'string',
 		}),
+		defineField({// textBeforeSubmit
+			name: 'textBeforeSubmit',
+			title: 'Text before submit',
+			type: 'string',
+		}),
 		defineField({// form
 			name: 'form',
 			title: 'Checkout Form',
