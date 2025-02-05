@@ -165,6 +165,19 @@ export default defineType({
 			title: 'Image for the home page',
 			type: 'image',
 		}),
+		defineField({
+			name: 'gallery_list',
+			title: 'Gallery',
+			type: 'array',
+			of: [
+				defineArrayMember({
+					name: 'image',
+					title: 'Image',
+					type: "image",
+					options: { hotspot: true, },
+				})
+			]
+		}),
 	],
 	preview: {
 		select: {
